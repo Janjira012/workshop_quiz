@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatibla" content="IE-edge">
+         <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Singin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+  </head>
+  <body>
+    <ul id="dropdown1" class="dropdown-content">
+  <li><a href="#!">one</a></li>
+  <li><a href="#!">two</a></li>
+  <li class="divider"></li>
+  <li><a href="#!">three</a></li>
+</ul>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#!" class="brand-logo">Logo</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="signin.html">signin</a></li>
+      <li><a href="signup.html">signup</a></li>
+    </ul>
+  </div>
+</nav>
+
+      <div class="row"><br>
+          <form class="" action="#" method="get">
+            <div class="row">
+            <div class="input-field col s5">
+
+              <i class="Small material-icons">contacts</i><br>
+              <label for="username "><h6>UserName</h6></label>
+              <input type="text" class="form-control" id="username" placeholder="">
+              <div class="page-header">
+                <p class="help-block">Help text here.</p><br>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+            <div class="input-field col s5">
+              <i class="Small material-icons">vpn_key</i>
+              <label for="password"><h6>Password</h6></label>
+              <input type="password" class="form-control" id="password" placeholder="">
+              <div class="page-header">
+              <p class="help-block">Help text here.</p><br>
+                </div>
+              </div>
+              </div>
+              <div class="row">
+                  <div class="from-group col s6">
+
+              <button type="button" id="signin" name="button" class="btn btn-primary">SIGN IN<i class="material-icons prefix">input</i></button>
+
+              </div>
+               </div>
+            </form>
+
+    </div>
+
+        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+
+      <script type="text/javascript">
+
+ $('#signin').click(function(){
+     var url="http://membershipwebapi977290.azurewebsites.net/api/Members/signin?";
+     url +="username="+$("#username").val();
+     url +="&password="+$("#password").val();
+     console.log(url);
+     $.get(url, function(data, status) {
+       console.log(data);
+       if (data.Status==true) {
+        window.location.href="data.html";
+
+       }else{
+         //Goto Sign up
+        // $("err").show();
+       window.location.href="signup.html";
+       }
+     });
+ });
+
+
+
+         </script>
+
+  </body>
+</html>
